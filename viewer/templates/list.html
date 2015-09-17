@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<title>Freelancer's friend</title>
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <h1 class="text-center">
+                Freelancer's friend
+            </h1>
+
+            <h3 class="text-center">
+                List of Python offers from sites like freelancer.com, guru.com, polish Python forums
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th> Title </th>
+                    <th> Description</th>
+                    <th> Portal </th>
+                    <th> Added </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for offer in offers %}
+                <tr>
+                    <td><a href="{{ offer.url}}" target="blank" >{{ offer.title}}</a></td>
+                    <td> {{ offer.description|safe}} </td>
+                    <td> {{ offer.source}} </td>
+                    <td> {{ offer.added}} </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+<style>
+th {
+        background-color: blue;
+            color: white;
+} 
+</style>
+</html>
