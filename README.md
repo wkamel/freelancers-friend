@@ -10,7 +10,7 @@ It downloads *Python* offers from many sources in many formats, i.e.:
 * **guru.com** - *RSS*(in fact *Atom*) - XML parsing is used 
 * **others** ... in progress
 
-### 1. Viewer 
+### 2. Viewer 
 Simple application for showing list of offers.
 It is written in Python with *Flask* framework and Jinja2 templates engine.
 Frontend is based on *Bootstrap*.
@@ -18,7 +18,7 @@ Frontend is based on *Bootstrap*.
 ## Demo
 
 This script is hosted on heroku.
-You can check it [here](freelancers-friend.heroku.com).
+You can check it [here](http://freelancers-friend.heroku.com).
 
 ## Testing
 
