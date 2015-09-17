@@ -9,8 +9,6 @@ DATABASE = os.path.join(os.path.dirname(__file__), '..', 'freelancers_friend.db'
 app = Flask(__name__)
 app.debug = True
 
-app._static_folder = os.path.join('/home/wkamel/Projekty/freelance-offers/freelancers_friend/viewer', 'static')
-
 
 @app.route('/')
 @app.route('/offer/<id>')
