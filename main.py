@@ -10,8 +10,6 @@ class OffersFeeder(object):
     def feed(self):
         offers = self.downloader_ctrl.get_offers()
         self.saver.save_offers(offers)
-        print "kot"
-
 
 if __name__ == '__main__':
     feeder = OffersFeeder()

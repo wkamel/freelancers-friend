@@ -7,6 +7,7 @@ class FreelancerDownloader(iDownloader):
 
     def __init__(self):
 
+        # TODO - cut more of unnecessary params from url
         self._url = "https://www.freelancer.com/ajax/table/project_contest_datatable.php?"
         self._url += "sEcho=8&iColumns=35&sColumns=&iDisplayStart=0&iDisplayLength=100&iSortingCols=1&iSortCol_0=6"
         self._url += "&sSortDir_0=desc&bSortable_0=false&bSortable_1=false&bSortable_2=false&bSortable_3=true"
@@ -21,7 +22,6 @@ class FreelancerDownloader(iDownloader):
         self._url += "&jobIdEnable=on&status=open&_=1441908051372"
 
         super(FreelancerDownloader, self).__init__()
-
 
     def download_offers(self):
         url = self.get_url()

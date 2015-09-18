@@ -18,6 +18,16 @@ class iDownloader(object):
     def download_offers(self):
         assert False, "method not implemented!"
 
+    def add_item(self, id, title, description, link):
+            item = self.ItemOffer(
+                id=id,
+                title=title,
+                description=description,
+                url=self.get_offer_url(link),
+                source=self.name
+            )
+            self.offers_items.append(item)
+
     def get_url(self):
         if not self._url:
             raise Exception("Url not set")

@@ -18,7 +18,8 @@ class ItemOffer(object):
 
         for f in self._fields:
             try:
-                getattr(self, f)
+                val = getattr(self, f)
+                setattr(self, f, val.strip())
             except:
                 raise ItemOfferMissingParamException(f)
 

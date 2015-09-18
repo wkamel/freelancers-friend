@@ -23,8 +23,16 @@ class Saver(object):
                 ))
                 conn.commit()
             except Exception as Ex:
-                print Ex
                 print "This offer already exists in DB, %s %s" % (o.id, o.title)
+
+        self.add_inport_info()
+
+    def add_inport_info(self):
+        conn = self.get_db()
+        cur = conn.cursor()
+        sqlx = "INSERT INTO imports VALUES(DATETIME('now'))"
+        cur.execute(sqlx)
+        conn.commit()
 
     def get_db(self):
 

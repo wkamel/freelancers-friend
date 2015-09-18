@@ -14,7 +14,26 @@ app.debug = True
 @app.route('/hello/<name>')
 def list(name=None):
     offers = get_offers_from_db()
+    if self.can_download():
+        self.download_offers()
     return render_template('list.html', offers=offers)
+
+def download_offers():
+    pass
+
+
+def can_download():
+    print "xxx"
+    conn = get_conn()
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    sqlx = "SELECT timestamp FROM imports ORDER BY timestamp DESC limit 1"
+    cur.execute(sqlx)
+    last_import = cur.fetch()
+    print last_import
+    exit()
+
+
 
 
 def get_offers_from_db():

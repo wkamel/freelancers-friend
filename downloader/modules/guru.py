@@ -3,7 +3,6 @@ import xml.etree.ElementTree as ET
 import urllib2
 
 
-
 class GuruDownloader(iDownloader):
     name = "guru"
     offers_url = ""
@@ -27,20 +26,9 @@ class GuruDownloader(iDownloader):
             link = offer.find('link').text
             description = offer.find('description').text
             id = self.gen_id(link)
-
-            item = self.ItemOffer(
-                id=id,
-                title=title,
-                description=description,
-                url=self.get_offer_url(link),
-                source=self.name
-            )
-            self.offers_items.append(item)
+            self.add_item(id, title, description, link)
 
     def gen_id(self, link):
         link = link
         id = link[link.rfind('/')+1:]
         return id
-
-
-
