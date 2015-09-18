@@ -22,8 +22,9 @@ class Saver(object):
                     o.id, o.title, o.description, o.url, o.source
                 ))
                 conn.commit()
-            except Exception as Ex:
-                print "This offer already exists in DB, %s %s" % (o.id, o.title)
+            except Exception:
+                pass
+                # print "This offer already exists in DB, %s %s" % (o.id, unicode(o.title))
 
         self.add_inport_info()
 
