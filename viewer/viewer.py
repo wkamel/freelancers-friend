@@ -19,7 +19,6 @@ app.debug = True
 def list(id=None):
     offers = get_offers_from_db()
     if can_download():
-        print "start download offers"
         download_offers()
 
     return render_template('list.html', offers=offers)

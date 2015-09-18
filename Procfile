@@ -1,1 +1,1 @@
-web: gunicorn viewer.viewer:app --log-file=-
+web: gunicorn run_viewer:app --log-file=-

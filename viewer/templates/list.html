@@ -49,9 +49,9 @@
                 {% for offer in offers %}
                 <tr>
                     <td><a href="{{ offer.url}}" target="blank" >{{ offer.title}}</a></td>
-                    <td> {{ offer.description|safe}} </td>
-                    <td> {{ offer.source}} </td>
-                    <td> {{ offer.added.strftime("%H:%M %d.%m") }} </td>
+                    <td> {{ offer.description|safe }} </td>
+                    <td> {{ offer.source }} </td>
+                    <td> {{ offer.added }} </td>
                 </tr>
                 {% endfor %}
                 </tbody>
