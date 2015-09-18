@@ -13,8 +13,8 @@ class DownloaderController(object):
         self.add_downloaders()
 
     def add_downloaders(self):
-        # self.d_builder.add_downloader(FreelancerDownloader)
-        # self.d_builder.add_downloader(GuruDownloader)
+        self.d_builder.add_downloader(FreelancerDownloader)
+        self.d_builder.add_downloader(GuruDownloader)
         self.d_builder.add_downloader(StackoverflowDownloader)
 
     def get_offers(self):
