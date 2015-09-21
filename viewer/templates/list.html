@@ -31,7 +31,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            <div class="table-responsive">
+            <div class="tabl">
 
 
             <table class="table table-condensed table-stripped">
@@ -48,7 +48,6 @@
             <tbody>
                 {% for offer in offers %}
                 <tr>
-                    <td> {{ offer.url}} </td>
                     <td><a href="{{ offer.url}}" target="BLANK" >{{ offer.title}}</a></td>
                     <td> {{ offer.description|safe }} </td>
                     <td> {{ offer.source }} </td>
