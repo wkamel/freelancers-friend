@@ -17,9 +17,10 @@ app.debug = True
 @app.route('/')
 @app.route('/offer/<id>')
 def list(id=None):
-    offers = get_offers_from_db()
     if can_download():
         download_offers()
+
+    offers = get_offers_from_db()
 
     return render_template('list.html', offers=offers)
 
@@ -53,7 +54,7 @@ def get_offers_from_db():
     conn = get_conn()
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
-    sqlx = """SELECT id, title, description, source, datetime(added, 'localtime') as added
+    sqlx = """SELECT id, title, description, source, datetime(added, 'localtime') as added, url
               FROM offers ORDER BY added desc"""
     cur.execute(sqlx)
     return cur.fetchall()

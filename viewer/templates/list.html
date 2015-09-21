@@ -48,7 +48,8 @@
             <tbody>
                 {% for offer in offers %}
                 <tr>
-                    <td><a href="{{ offer.url}}" target="blank" >{{ offer.title}}</a></td>
+                    <td> {{ offer.url}} </td>
+                    <td><a href="{{ offer.url}}" target="BLANK" >{{ offer.title}}</a></td>
                     <td> {{ offer.description|safe }} </td>
                     <td> {{ offer.source }} </td>
                     <td> {{ offer.added }} </td>
