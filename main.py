@@ -12,5 +12,7 @@ class OffersFeeder(object):
         self.saver.save_offers(offers)
 
 if __name__ == '__main__':
+    print "ff"
     feeder = OffersFeeder()
     feeder.feed()
+    print "ff"
