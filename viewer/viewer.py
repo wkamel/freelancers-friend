@@ -17,18 +17,16 @@ app.debug = True
 @app.route('/')
 @app.route('/offer/<id>')
 def list(id=None):
-    if can_download():
+    if 0 and can_download():
         download_offers()
 
     offers = get_offers_from_db()
-
     return render_template('list.html', offers=offers)
 
 
 def download_offers():
     downloader_ctrl = DownloaderController()
     saver = Saver()
-
     offers = downloader_ctrl.get_offers()
     saver.save_offers(offers)
 
@@ -54,7 +52,8 @@ def get_offers_from_db():
     conn = get_conn()
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
-    sqlx = """SELECT id, title, description, source, datetime(added, 'localtime') as added, url
+    sqlx = """SELECT id, title, description, source, datetime(added, 'localtime') as add_date, url,
+              (strftime('%s', 'now') - strftime('%s', added))/60  <= 15 as new_offer
               FROM offers ORDER BY added desc"""
     cur.execute(sqlx)
     return cur.fetchall()
@@ -62,7 +61,7 @@ def get_offers_from_db():
 
 ############
 #
-# SQLite3 management
+# simple SQLite3 management
 #
 ###########
 
