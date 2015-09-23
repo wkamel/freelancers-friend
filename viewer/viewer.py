@@ -17,7 +17,7 @@ app.debug = True
 @app.route('/')
 @app.route('/offer/<id>')
 def list(id=None):
-    if 0 and can_download():
+    if can_download():
         download_offers()
 
     offers = get_offers_from_db()
