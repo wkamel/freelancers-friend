@@ -48,10 +48,10 @@
             
             <tbody>
                 {% for offer in offers %}
-                <tr class="{% if offer.new_offer %}info{% endif %}">
+                <tr class="{% if offer.today %}success{% endif %} {% if offer.new_offer %}info{% endif %}">
                     <td><a href="{{ offer.url}}" target="BLANK" >{{ offer.title}}</a></td>
-                    <td> {{ offer.description|safe }} {{offer.new_offer }}kk</td>
-                    <td> {{ offer.source }} </td>
+                    <td> {{ offer.description|safe }}</td>
+                    <td style="text-align:center;margin-top:auto"> <img src="{{ url_for('static', filename='img/%s.png' % offer.source) }}" alt="{{offer.source}}"> </td>
                     <td> {{ offer.add_date }} </td>
                 </tr>
                 {% endfor %}

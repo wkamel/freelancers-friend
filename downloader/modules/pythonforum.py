@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 class PythonforumDownloader(iDownloader):
     name = "pythonforum"
-    offers_url = "http://careers.stackoverflow.com"
+    offers_url = ""
 
     def __init__(self):
 

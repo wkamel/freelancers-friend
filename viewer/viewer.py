@@ -52,11 +52,26 @@ def get_offers_from_db():
     conn = get_conn()
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
+    # there is a limit to 100 - i'm not interested in older offers
     sqlx = """SELECT id, title, description, source, datetime(added, 'localtime') as add_date, url,
               (strftime('%s', 'now') - strftime('%s', added))/60  <= 15 as new_offer
-              FROM offers ORDER BY added desc"""
+              FROM offers ORDER BY added desc limit 100"""
     cur.execute(sqlx)
-    return cur.fetchall()
+    offers = []
+    for row in cur.fetchall():
+        offer = dict(row)
+        add_date = datetime.strptime(offer['add_date'], "%Y-%m-%d %H:%M:%S")
+        days_diff = (datetime.now()-add_date).days
+        if not days_diff:
+            offer['add_date'] = add_date.strftime("%H:%M")
+            offer['today'] = True
+        else:
+            offer['add_date'] = add_date.strftime("%H:%M %d.%m")
+            offer['today'] = False
+
+        offers.append(offer)
+
+    return offers
 
 
 ############
