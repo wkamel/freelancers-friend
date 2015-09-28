@@ -55,7 +55,7 @@ def get_offers_from_db():
     # there is a limit to 100 - i'm not interested in older offers
     sqlx = """SELECT id, title, description, source, datetime(added, 'localtime') as add_date, url,
               (strftime('%s', 'now') - strftime('%s', added))/60  <= 15 as new_offer
-              FROM offers ORDER BY added desc limit 100"""
+              FROM offers ORDER BY id desc limit 100"""
     cur.execute(sqlx)
     offers = []
     for row in cur.fetchall():
