@@ -1,8 +1,8 @@
 import unittest
 # from .downloader.downloader_builder import DownloaderController
-from freelancers_friend.downloader.downloader_builder import DownloaderBuilder
-from freelancers_friend.downloader.modules.freelancer import FreelancerDownloader
-from freelancers_friend.downloader.item_offer import ItemOffer, ItemOfferMissingParamException
+from downloader.downloader_builder import DownloaderBuilder
+from downloader.modules.freelancer import FreelancerDownloader
+from downloader.item_offer import ItemOffer, ItemOfferMissingParamException
 
 
 class TestDownloaderBuilder(unittest.TestCase):
