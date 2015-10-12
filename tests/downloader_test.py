@@ -1,8 +1,8 @@
 import unittest
 # from .downloader.downloader_builder import DownloaderController
-from downloader.downloader_builder import DownloaderBuilder
-from downloader.modules.freelancer import FreelancerDownloader
-from downloader.item_offer import ItemOffer, ItemOfferMissingParamException
+from freelancers_friend.downloader.downloader_builder import DownloaderBuilder
+from freelancers_friend.downloader.modules.freelancer import FreelancerDownloader
+from freelancers_friend.downloader.item_offer import ItemOffer, ItemOfferMissingParamException
 
 
 class TestDownloaderBuilder(unittest.TestCase):
@@ -32,6 +32,6 @@ class TestDownloaderBuilder(unittest.TestCase):
     def test_get_offers(self):
         """ test downloading offers and store in array of ItemOffers"""
 
-        d_builder = DownloaderBuilder()
-        d_builder.add_downloader(FreelancerDownloader)
-        d_builder.get_offers()
+        # d_builder = DownloaderBuilder()
+        # d_builder.add_downloader(FreelancerDownloader)
+        # d_builder.get_offers()
