@@ -17,8 +17,8 @@ Frontend is based on *Bootstrap*.
 
 ## Demo
 
-This script is hosted on heroku.
-You can check it [here](http://freelancers-friend.heroku.com).
+This script was hosted on heroku, but now it's inactive.
+If you would like to test it find me [on my webpage](https://softarm.pl).
 
 ## Testing
 
